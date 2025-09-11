@@ -3,7 +3,7 @@ import EditTodo from "./EditTodo";
 import toast from "react-hot-toast";
 import TodoServices from "../services/todoServices";
 
-const Card = ({ allTask }) => {
+const Card = ({ allTask, getUserTask }) => {
   const [showModel, setShowModel] = useState(false);
   const [editingTask, setEditingTask] = useState(null);
 
@@ -16,6 +16,7 @@ const Card = ({ allTask }) => {
     try {
       await TodoServices.deleteTodo(id);
       toast.success("task deleted successfully");
+      getUserTask();
     } catch (error) {
       console.log(error);
       toast.error(error);
@@ -75,7 +76,11 @@ const Card = ({ allTask }) => {
             </div>
             <div>
               {showModel && (
-                <EditTodo task={editingTask} setShowModel={setShowModel} />
+                <EditTodo
+                  getUserTask={getUserTask}
+                  task={editingTask}
+                  setShowModel={setShowModel}
+                />
               )}
             </div>
           </>

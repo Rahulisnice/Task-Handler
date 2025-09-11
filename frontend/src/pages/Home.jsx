@@ -48,38 +48,47 @@ const Home = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="container mx-auto px-4 py-10 ">
-        <div className="bg-gradient-to-r from-indigo-500 mb-6 via-purple-500 to-pink-500 rounded-xl shadow-lg p-8 flex flex-col items-center">
-          <h1 className="text-4xl font-extrabold text-white mb-6 drop-shadow-lg">
-            Your Task
-          </h1>
-          <div className="flex w-full max-w-md gap-4 mb-6">
-            <input
-              type="search"
-              placeholder="Search your task"
-              value={searchQuery}
-              onChange={handleSearch}
-              className="flex-1 px-4 py-2 rounded-lg border-none shadow focus:outline-none focus:ring-2 focus:ring-green-400 text-white"
-            />
-            <button
-              onClick={openModelHandler}
-              className="bg-white text-pink-600 font-bold px-6 py-2 rounded-lg shadow hover:bg-pink-600 hover:text-white transition duration-200"
-            >
-              Create Task
-            </button>
+      <div
+        className="relative min-h-screen bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            "url(https://images.pexels.com/photos/1183099/pexels-photo-1183099.jpeg)",
+        }}
+      >
+        <Navbar />
+        <div className="container mx-auto px-4 py-10 ">
+          <div className="bg-gradient-to-r from-indigo-500 mb-6 via-purple-500 to-pink-500 rounded-xl shadow-lg p-8 flex flex-col items-center">
+            <h1 className="text-4xl font-extrabold text-white mb-6 drop-shadow-lg">
+              Your Task
+            </h1>
+            <div className="flex w-full max-w-md gap-4 mb-6">
+              <input
+                type="search"
+                placeholder="Search your task"
+                value={searchQuery}
+                onChange={handleSearch}
+                className="flex-1 px-4 py-2 rounded-lg border-none shadow focus:outline-none focus:ring-2 focus:ring-green-400 text-white"
+              />
+              <button
+                onClick={openModelHandler}
+                className="bg-white text-pink-600 font-bold px-6 py-2 rounded-lg shadow hover:bg-pink-600 hover:text-white transition duration-200"
+              >
+                Create Task
+              </button>
+            </div>
           </div>
+          {allTask && <Card allTask={allTask} getUserTask={getUserTask} />}
+          {/* ==========modal============== */}
+          <PopModel
+            showModel={showModel}
+            setShowModel={setShowModel}
+            title={title}
+            setTitle={setTitle}
+            description={description}
+            setDescription={setDescription}
+            getUserTask={getUserTask}
+          />
         </div>
-        {allTask && <Card allTask={allTask} />}
-        {/* ==========modal============== */}
-        <PopModel
-          showModel={showModel}
-          setShowModel={setShowModel}
-          title={title}
-          setTitle={setTitle}
-          description={description}
-          setDescription={setDescription}
-        />
       </div>
     </>
   );

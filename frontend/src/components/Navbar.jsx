@@ -41,6 +41,14 @@ const Navbar = () => {
             My TodoList
           </Link>
         </li>
+        <li>
+          <Link
+            className="hover:text-violet-300 transition-colors duration-200 font-medium"
+            to="/about"
+          >
+            About
+          </Link>
+        </li>
       </ul>
       <button
         onClick={logoutHandler}

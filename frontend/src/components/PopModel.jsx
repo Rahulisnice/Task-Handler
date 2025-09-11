@@ -4,6 +4,7 @@ import TodoServices from "../services/todoServices";
 
 const PopModel = ({
   title,
+  getUserTask,
   setTitle,
   description,
   setDescription,
@@ -28,6 +29,7 @@ const PopModel = ({
 
       const todo = await TodoServices.createTodo(data);
       setShowModel(false);
+      getUserTask();
       toast.success("Task created successfully");
       console.log(todo);
       setTitle("");
