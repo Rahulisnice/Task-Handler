@@ -23,8 +23,13 @@ app.use(
 );
 
 //routes
+console.log("Registering route /api/user");
 app.use("/api/user", require("./routes/userRoutes"));
+
+console.log("Registering route /api/todo");
 app.use("/api/todo", require("./routes/todoRoutes"));
+
+console.log("Registering route /api/test");
 app.use("/api/test", require("./routes/testRouter"));
 
 app.use(express.static(path.join(__dirname, "dist")));
