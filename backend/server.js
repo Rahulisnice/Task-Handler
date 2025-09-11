@@ -6,12 +6,6 @@ const connectDB = require("./config/db");
 //rest object
 const app = express();
 
-app.use(express.static(path.join(__dirname, "dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"));
-});
-
 //.env config
 dotenv.config();
 
@@ -20,7 +14,12 @@ connectDB();
 
 //middlewares
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://task-handler-8loo.vercel.app/"],
+    credentials: true,
+  })
+);
 
 //routes
 app.use("/api/user", require("./routes/userRoutes"));
