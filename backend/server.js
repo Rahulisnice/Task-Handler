@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
@@ -25,6 +26,12 @@ app.use(
 app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/todo", require("./routes/todoRoutes"));
 app.use("/api/test", require("./routes/testRouter"));
+
+app.use(express.static(path.join(__dirname, "dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "dist", "index.html"));
+});
 
 //port
 const PORT = process.env.PORT || 8000;
