@@ -16,7 +16,7 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://task-handler-8loo.vercel.app/"],
+    origin: ["https://task-handler-8loo.vercel.app"],
     credentials: true,
   })
 );
