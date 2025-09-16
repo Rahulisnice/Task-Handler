@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const connectDB = require("./config/db");
+const connectDB = require("./controller/config/db");
 
 //rest object
 const app = express();
@@ -17,26 +17,17 @@ connectDB();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://task-handler-8loo.vercel.app"],
+    origin: ["https://task-handler-tz8n.onrender.com"],
     credentials: true,
   })
 );
 
 //routes
-console.log("Registering route /api/user");
 app.use("/api/user", require("./routes/userRoutes"));
 
-console.log("Registering route /api/todo");
 app.use("/api/todo", require("./routes/todoRoutes"));
 
-console.log("Registering route /api/test");
 app.use("/api/test", require("./routes/testRouter"));
-
-app.use(express.static(path.join(__dirname, "dist")));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "dist", "index.html"));
-});
 
 //port
 const PORT = process.env.PORT || 8000;
