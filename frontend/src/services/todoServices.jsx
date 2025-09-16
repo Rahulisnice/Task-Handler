@@ -7,7 +7,7 @@ const user = JSON.parse(localStorage.getItem("todoapp")) || {};
 
 //default auth header
 axios.defaults.headers.common["Authorization"] = user.token
-  ? `bearer ${user.token}`
+  ? `Bearer ${user.token}`
   : "";
 
 //CREATE TODO
@@ -17,7 +17,7 @@ const createTodo = (data) => {
 
 //GET ALL TODO
 const getAllTodo = (id) => {
-  return axios.post(`${API_BASE_URL}/api/todo/getAll/${id}`);
+  return axios.get(`${API_BASE_URL}/api/todo/getAll/${id}`);
 };
 
 //UPDATE ALL TODO
