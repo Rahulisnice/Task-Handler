@@ -18,10 +18,9 @@ const About = () => {
           </h1>
 
           <p className="text-lg text-teal-400 leading-relaxed text-center max-w-3xl mx-auto">
-            Welcome to Local Service Finder — your trusted platform connecting
-            you with verified, top-rated local professionals. Our mission is to
-            make finding skilled service providers as easy and reliable as
-            possible.
+            Welcome to Todo Handler — your trusted platform connecting you with
+            verified, top-rated app. Our mission is to make best task handler
+            app as easy and reliable as possible.
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -30,8 +29,8 @@ const About = () => {
                 Our Vision
               </h2>
               <p className="text-purple-400 text-center">
-                To empower communities with the best local services delivered
-                with trust, transparency, and ease.
+                To empower communities with the best services delivered with
+                trust, transparency, and ease.
               </p>
             </div>
             <div className="p-6 bg-white bg-opacity-30 rounded-lg shadow-lg hover:bg-opacity-50 transition cursor-pointer">
@@ -51,7 +50,7 @@ const About = () => {
               </h2>
               <p className="text-purple-400 text-center">
                 A passionate group of tech and service experts dedicated to
-                creating seamless experiences for users and providers alike.
+                creating seamless experiences for users alike.
               </p>
             </div>
           </div>
